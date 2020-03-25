@@ -4,15 +4,16 @@ How to add HTML, JQuery and Css styles to your wordpress Theme - Example in: www
 USAR JQUERY y Bootstrap EN WORDPRESS: https://decodecms.com/incluir-bootstrap-en-wordpress/
 
 1. Ubicar functions.php dentro de la carpeta del tema.
+
 2. Incluir funciones al final del fichero:
 
 // Incluir Bootstrap CSS
 function bootstrap_css() {
 	wp_enqueue_style( 'bootstrap_css', 
-  					'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', 
-  					array(), 
-  					'4.1.1'
-  					); 
+	'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', 
+	array(), 
+	'4.1.1'
+	); 
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_css');
 
@@ -21,28 +22,30 @@ add_action( 'wp_enqueue_scripts', 'bootstrap_css');
 function bootstrap_js() {
 
 	wp_enqueue_script( 'popper_js', 
-  					'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', 
-  					array(), 
-  					'1.16.0', 
-  					true); 
+		'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', 
+		array(), 
+		'1.16.0', 
+	true); 
 	wp_enqueue_script( 'bootstrap_js', 
-  					'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', 
-  					array('jquery','popper_js'), 
-  					'4.4.1', 
-  					true); 
+		'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', 
+		array('jquery','popper_js'), 
+		'4.4.1', 
+	true); 
+	
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_js');
 
 3. usar ejemplo: Se agrega en wordpress-> apariencia - widgets => uno nuevo de tipo HTML PERSONALIZADO ASI:
 
 <script>
-		jQuery(document).ready(function() {
-		jQuery('#modalTitle').html('Medidas contra el COVID-19 <strong style="color: #000000 !important;"><a href="https://www.instagram.com/explore/tags/yomequedoencasa/?hl=es-la" target="_new" style="color: #000000 !important;">#yoMeQuedoEnCasa</a> <a href="https://www.instagram.com/explore/tags/lizetbenavidesdermatologa/?hl=es-la" target="_new" style="color: #000000 !important;">#lizetbenavidesdermatologa</a></strong>');
-		jQuery('#modalBody').html('<a href="https://api.whatsapp.com/send?phone=573112558004&text=Hola,%20te%20hablo%20desde%20tu%20web"><p align="center"><img src="covid19MiniLizet.png" class="figure-img img-fluid rounded"></p></a><p align="center" style="color: #000000 !important;">Click sobre la imagen si deseas contactarnos mediante WhatsApp.</p>');
-		jQuery('#frmModal').modal({backdrop: 'static', keyboard: true});
-		jQuery('#frmModal').modal('show');
-		jQuery('#frmModal').fadeIn('slow');
-	});
+	
+jQuery(document).ready(function() {
+	jQuery('#modalTitle').html('Medidas contra el COVID-19 <strong style="color: #000000 !important;"><a href="https://www.instagram.com/explore/tags/yomequedoencasa/?hl=es-la" target="_new" style="color: #000000 !important;">#yoMeQuedoEnCasa</a> <a href="https://www.instagram.com/explore/tags/lizetbenavidesdermatologa/?hl=es-la" target="_new" style="color: #000000 !important;">#lizetbenavidesdermatologa</a></strong>');
+	jQuery('#modalBody').html('<a href="https://api.whatsapp.com/send?phone=573112558004&text=Hola,%20te%20hablo%20desde%20tu%20web"><p align="center"><img src="covid19MiniLizet.png" class="figure-img img-fluid rounded"></p></a><p align="center" style="color: #000000 !important;">Click sobre la imagen si deseas contactarnos mediante WhatsApp.</p>');
+	jQuery('#frmModal').modal({backdrop: 'static', keyboard: true});
+	jQuery('#frmModal').modal('show');
+	jQuery('#frmModal').fadeIn('slow');
+});
 	
 jQuery('.modal').on('shown.bs.modal', function() {
   //Make sure the modal and backdrop are siblings (changes the DOM)
