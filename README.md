@@ -61,24 +61,25 @@ jQuery('.modal').on('shown.bs.modal', function() {
 Ubicar functions.php dentro de la carpeta del tema y se agrega el HTML con JS asi:
 
 add_action('wp_footer', 'my_custom_footer_js');
+
 function my_custom_footer_js() {
-  echo '<div id="frmModal" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-    <div class="modal-content">
 
-		<div class="modal-header text-center">
-			<p align="center">
-				<h5 id="modalTitle" class="modal-title text-center">Modal title</h5>
-			</p>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
+	echo '<div id="frmModal" class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<p align="center">
+					<h5 id="modalTitle" class="modal-title text-center">Modal title</h5>
+					</p>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div id="modalBody" class="modal-body">
+					Content here....
+				</div>
+			</div>
 		</div>
-		<div id="modalBody" class="modal-body">
-			
-		</div>
-
-    </div>
-  </div>
-</div>';
+	</div>';
+	
 }
